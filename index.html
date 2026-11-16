@@ -1,0 +1,26 @@
+<!-- JavaScript For Timer & Scroll Animations -->
+    <script>
+        // Countdown Logic
+        const targetDate = new Date("Nov 29, 2026 19:00:00").getTime();
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+        }, 1000);
+
+        // Scroll Animation Logic
+        function revealElements() {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(element => {
+
+
